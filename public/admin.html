@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espace Administrateur</title>
+    <link rel="stylesheet" href="admin-styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Admin - MaBoutique</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Dashboard</a></li>
+                <li><a href="#">Utilisateurs</a></li>
+                <li><a href="#">Produits</a></li>
+                <li><a href="#">Commandes</a></li>
+                <li><a href="#">Déconnexion</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="dashboard">
+            <h2>Statistiques</h2>
+            <div class="stats">
+                <div class="stat-item">
+                    <h3>Total Utilisateurs</h3>
+                    <p>100</p>
+                </div>
+                <div class="stat-item">
+                    <h3>Total Produits</h3>
+                    <p>150</p>
+                </div>
+                <div class="stat-item">
+                    <h3>Total Commandes</h3>
+                    <p>200</p>
+                </div>
+            </div>
+        </section>
+        <section class="management">
+            <h2>Gérer les Utilisateurs</h2>
+            <!-- Formulaire d'ajout d'utilisateur -->
+            <form id="addUserForm">
+                <label for="userName">Nom:</label>
+                <input type="text" id="userName" name="userName" required>
+                <label for="userEmail">Email:</label>
+                <input type="email" id="userEmail" name="userEmail" required>
+                <label for="userPassword">Mot de passe:</label>
+                <input type="password" id="userPassword" name="userPassword" required>
+                <button type="submit">Ajouter Utilisateur</button>
+            </form>
+            <!-- Liste des utilisateurs -->
+            <div id="userList">
+                <h3>Liste des Utilisateurs</h3>
+                <!-- Exemple de liste -->
+                <ul>
+                    <li>Jean Dupont - jean.dupont@example.com <button>Modifier</button> <button>Supprimer</button></li>
+                    <li>Marie Durand - marie.durand@example.com <button>Modifier</button> <button>Supprimer</button></li>
+                </ul>
+            </div>
+        </section>
+        <section class="management">
+            <h2>Gérer les Produits</h2>
+            <!-- Formulaire d'ajout de produit -->
+            <form id="addProductForm">
+                <label for="productName">Nom du produit:</label>
+                <input type="text" id="productName" name="productName" required>
+                <label for="productDescription">Description:</label>
+                <textarea id="productDescription" name="productDescription" required></textarea>
+                <label for="productPrice">Prix:</label>
+                <input type="number" id="productPrice" name="productPrice" required>
+                <label for="productCategory">Catégorie:</label>
+                <input type="text" id="productCategory" name="productCategory" required>
+                <label for="productSize">Taille:</label>
+                <input type="text" id="productSize" name="productSize" required>
+                <label for="productStock">Stock:</label>
+                <input type="number" id="productStock" name="productStock" required>
+                <button type="submit">Ajouter Produit</button>
+            </form>
+            <!-- Liste des produits -->
+            <div id="productList">
+                <h3>Liste des Produits</h3>
+                <!-- Exemple de liste -->
+                <ul>
+                    <li>T-shirt en coton - 19.99€ <button>Modifier</button> <button>Supprimer</button></li>
+                    <li>Robe d'été - 29.99€ <button>Modifier</button> <button>Supprimer</button></li>
+                </ul>
+            </div>
+        </section>
+        <section class="management">
+            <h2>Gérer les Commandes</h2>
+            <!-- Liste des commandes -->
+            <div id="orderList">
+                <h3>Liste des Commandes</h3>
+                <!-- Exemple de liste -->
+                <ul>
+                    <li>Commande #1023 - En attente <button>Voir Détails</button> <button>Modifier Statut</button></li>
+                    <li>Commande #1024 - Expédiée <button>Voir Détails</button> <button>Modifier Statut</button></li>
+                </ul>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 MaBoutique. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>

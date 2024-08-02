@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau de Bord Administrateur</title>
+    <link rel="stylesheet" href="/admin-styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Admin - MaBoutique</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/admin">Dashboard</a></li>
+                <li><a href="/users">Utilisateurs</a></li>
+                <li><a href="/products">Produits</a></li>
+                <li><a href="/orders">Commandes</a></li>
+                <li><a href="/auth/logout">Déconnexion</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="dashboard">
+            <h2>Statistiques</h2>
+            <div class="stats">
+                <div class="stat-item">
+                    <h3>Total Utilisateurs</h3>
+                    <p><%= users %></p>
+                </div>
+                <div class="stat-item">
+                    <h3>Total Produits</h3>
+                    <p><%= products %></p>
+                </div>
+                <div class="stat-item">
+                    <h3>Total Commandes</h3>
+                    <p><%= orders %></p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 MaBoutique. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>
