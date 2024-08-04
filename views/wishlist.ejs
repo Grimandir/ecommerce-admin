@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ma Liste de Souhaits</title>
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<% include('partials/header') %>
+<main class="container my-5">
+    <h2>Ma Liste de Souhaits</h2>
+    <ul class="list-group">
+        <% wishlistItems.forEach(item => { %>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <span>
+                    <img src="<%= item.produit_id.image %>" alt="<%= item.produit_id.nom %>" class="img-thumbnail" style="width: 100px;">
+                    <%= item.produit_id.nom %> - €<%= item.produit_id.prix %>
+                </span>
+                <form action="/wishlist/delete/<%= item._id %>" method="post">
+                    <button type="submit" class="btn btn-danger">Supprimer</button>
+                </form>
+            </li>
+        <% }); %>
+    </ul>
+</main>
+<% include('partials/footer') %>
+<script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+
+

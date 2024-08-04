@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Résultats de recherche pour "<%= query %>"</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <% include partials/header %>
+    <main>
+        <section>
+            <h2>Résultats de recherche pour "<%= query %>"</h2>
+            <div class="product-grid">
+                <% if (results.length > 0) { %>
+                    <% results.forEach(produit => { %>
+                        <div class="product-item">
+                            <h3><%= produit.nom %></h3>
+                            <p><%= produit.description %></p>
+                            <p><strong>Prix : €<%= produit.prix %></strong></p>
+                            <p><strong>Taille : <%= produit.taille %></strong></p>
+                            <p><strong>Stock : <%= produit.stock %></strong></p>
+                            <form action="/cart/add" method="post">
+                                <input type="hidden" name="id" value="<%= produit.id %>">
+                                <input type="number" name="quantite" value="1" min="1">
+                                <button type="submit">Ajouter au Panier</button>
+                            </form>
+                        </div>
+                    <% }); %>
+                <% } else { %>
+                    <p>Aucun produit trouvé.</p>
+                <% } %>
+            </div>
+        </section>
+    </main>
+    <% include partials/footer %>
+</body>
+</html>
+

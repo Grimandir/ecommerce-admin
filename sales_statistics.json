@@ -1,0 +1,20 @@
+[
+    {
+        "product_id": "60d21b4667d0d8992e610c85",
+        "total_sales": 199.90,
+        "units_sold": 10,
+        "last_sold_at": "2023-01-01T00:00:00Z"
+    },
+    {
+        "product_id": "60d21b4667d0d8992e610c86",
+        "total_sales": 299.90,
+        "units_sold": 15,
+        "last_sold_at": "2023-02-01T00:00:00Z"
+    },
+    {
+        "product_id": "60d21b4667d0d8992e610c87",
+        "total_sales": 150.00,
+        "units_sold": 5,
+        "last_sold_at": "2023-03-01T00:00:00Z"
+    }
+]

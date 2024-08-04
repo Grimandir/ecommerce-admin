@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MaBoutique - Accueil</title>
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<% include('partials/header') %>
+<main class="container mt-5">
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="images/slide1.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Nouvelle Collection</h5>
+                    <p>Découvrez notre nouvelle collection pour l'été.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="images/slide2.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Promotions Spéciales</h5>
+                    <p>Profitez de nos promotions spéciales sur les articles sélectionnés.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="images/slide3.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Tendances Actuelles</h5>
+                    <p>Restez à la mode avec nos dernières tendances.</p>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <section class="mt-5">
+        <h2>Catégories Populaires</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="images/hommes.jpg" class="card-img-top" alt="Hommes">
+                    <div class="card-body">
+                        <h5 class="card-title">Hommes</h5>
+                        <p class="card-text">Découvrez les dernières tendances pour hommes.</p>
+                        <a href="/categorie/hommes" class="btn btn-primary">Voir Hommes</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="images/femmes.jpg" class="card-img-top" alt="Femmes">
+                    <div class="card-body">
+                        <h5 class="card-title">Femmes</h5>
+                        <p class="card-text">Explorez notre collection pour femmes.</p>
+                        <a href="/categorie/femmes" class="btn btn-primary">Voir Femmes</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="images/enfants.jpg" class="card-img-top" alt="Enfants">
+                    <div class="card-body">
+                        <h5 class="card-title">Enfants</h5>
+                        <p class="card-text">Mode pour enfants, à découvrir maintenant.</p>
+                        <a href="/categorie/enfants" class="btn btn-primary">Voir Enfants</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="mt-5">
+        <h2>Promotions</h2>
+        <div class="row">
+            <% promotions.forEach(promotion => { %>
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="<%= promotion.image %>" class="card-img-top" alt="<%= promotion.nom %>">
+                        <div class="card-body">
+                            <h5 class="card-title"><%= promotion.nom %></h5>
+                            <p class="card-text"><%= promotion.description %></p>
+                            <p class="card-text"><strong>Prix: €<%= promotion.prix %></strong></p>
+                            <a href="/produit/<%= promotion.id %>" class="btn btn-primary">Voir Détails</a>
+                        </div>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+    </section>
+</main>
+<% include('partials/footer') %>
+<script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+

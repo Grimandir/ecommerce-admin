@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MaBoutique - <%= categorie %></title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <% include partials/header %>
+    <main>
+        <section>
+            <h2>Produits pour <%= categorie %></h2>
+            <form action="/categorie/<%= categorie.toLowerCase() %>" method="get" class="filters">
+                <label for="prix">Prix max:</label>
+                <input type="number" name="prix" id="prix" min="0">
+                
+                <label for="note">Note min:</label>
+                <select name="note" id="note">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+    
+                <button type="submit">Filtrer</button>
+            </form>
+            <div class="product-grid">
+                <% produits.forEach(produit => { %>
+                    <div class="product-item">
+                        <h3><%= produit.nom %></h3>
+                        <p><%= produit.description %></p>
+                        <p><strong>Prix : €<%= produit.prix %></strong></p>
+                        <p><strong>Taille : <%= produit.taille %></strong></p>
+                        <p><strong>Stock : <%= produit.stock %></strong></p>
+                        <form action="/cart/add" method="post">
+                            <input type="hidden" name="id" value="<%= produit.id %>">
+                            <input type="number" name="quantite" value="1" min="1">
+                            <button type="submit">Ajouter au Panier</button>
+                        </form>
+                        <!-- Formulaire pour ajouter un avis -->
+                        <form action="/reviews/add" method="post">
+                            <input type="hidden" name="produit_id" value="<%= produit.id %>">
+                            <input type="hidden" name="utilisateur_id" value="<%= utilisateur_id %>">
+                            <input type="hidden" name="categorie" value="<%= categorie %>">
+                            <label for="note">Note:</label>
+                            <select name="note" id="note">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                            <label for="commentaire">Commentaire:</label>
+                            <textarea name="commentaire" id="commentaire" required></textarea>
+                            <button type="submit">Ajouter un avis</button>
+                        </form>
+                        <!-- Affichage des avis -->
+                        <div class="reviews">
+                            <h4>Avis:</h4>
+                            <% produit.avis.forEach(avis => { %>
+                                <p><strong>Note:</strong> <%= avis.note %>/5</p>
+                                <p><strong>Commentaire:</strong> <%= avis.commentaire %></p>
+                                <p><em>Posté le: <%= avis.date %></em></p>
+                            <% }); %>
+                        </div>
+                    </div>
+                <% }); %>
+            </div>
+        </section>
+    </main>
+    <% include partials/footer %>
+</body>
+</html>
+
+
+

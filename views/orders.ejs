@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MaBoutique - Commandes</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <% include partials/header %>
+    <main>
+        <section>
+            <h2>Commandes</h2>
+            <% if (orders.length > 0) { %>
+                <ul>
+                    <% orders.forEach(order => { %>
+                        <li>
+                            Commande #<%= order.id %> - Total: €<%= order.total %> - Statut: <%= order.statut %>
+                            <form action="/orders/update" method="post" style="display:inline;">
+                                <input type="hidden" name="id" value="<%= order.id %>">
+                                <select name="statut">
+                                    <option value="En attente" <%= order.statut === 'En attente' ? 'selected' : '' %>>En attente</option>
+                                    <option value="Traitée" <%= order.statut === 'Traitée' ? 'selected' : '' %>>Traitée</option>
+                                    <option value="Expédiée" <%= order.statut === 'Expédiée' ? 'selected' : '' %>>Expédiée</option>
+                                    <option value="Livrée" <%= order.statut === 'Livrée' ? 'selected' : '' %>>Livrée</option>
+                                </select>
+                                <button type="submit">Mettre à jour</button>
+                            </form>
+                        </li>
+                    <% }); %>
+                </ul>
+            <% } else { %>
+                <p>Aucune commande à afficher.</p>
+            <% } %>
+        </section>
+    </main>
+    <% include partials/footer %>
+</body>
+</html>
+
+

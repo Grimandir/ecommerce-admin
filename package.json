@@ -1,0 +1,33 @@
+{
+  "name": "ecommerce-admin",
+  "version": "1.0.0",
+  "description": "Application de gestion d'un site e-commerce avec MongoDB pour les statistiques et MySQL pour les données principales.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "keywords": [],
+  "author": "Votre Nom",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "connect-flash": "^0.1.1",
+    "connect-mongo": "^4.6.0",
+    "dotenv": "^16.0.0",
+    "ejs": "^3.1.8",
+    "express": "^4.17.3",
+    "express-session": "^1.17.2",
+    "helmet": "^4.6.0",
+    "mongo-sanitize": "^2.0.1",
+    "mongodb": "^4.4.1",
+    "mysql2": "^2.3.3",
+    "nodemailer": "^6.7.2",
+    "nodemon": "^2.0.15",
+    "stripe": "^8.203.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
+

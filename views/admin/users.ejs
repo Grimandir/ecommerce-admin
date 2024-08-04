@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des Utilisateurs</title>
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/admin-styles.css">
+</head>
+<body>
+<% include('../partials/header') %>
+<main class="container my-5">
+    <section>
+        <h2>Gestion des Utilisateurs</h2>
+        <form action="/admin/users/add" method="post" class="mb-5">
+            <div class="mb-3">
+                <label for="nom" class="form-label">Nom:</label>
+                <input type="text" id="nom" name="nom" required class="form-control">
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email:</label>
+                <input type="email" id="email" name="email" required class="form-control">
+            </div>
+            <div class="mb-3">
+                <label for="mot_de_passe" class="form-label">Mot de passe:</label>
+                <input type="password" id="mot_de_passe" name="mot_de_passe" required class="form-control">
+            </div>
+            <button type="submit" class="btn btn-primary">Ajouter Utilisateur</button>
+        </form>
+        <ul class="list-group">
+            <% users.forEach(user => { %>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <span><%= user.nom %> - <%= user.email %></span>
+                    <span>
+                        <form action="/admin/users/edit/<%= user._id %>" method="post" class="d-inline">
+                            <input type="text" name="nom" value="<%= user.nom %>" required class="form-control d-inline-block me-2" style="width: auto;">
+                            <input type="email" name="email" value="<%= user.email %>" required class="form-control d-inline-block me-2" style="width: auto;">
+                            <input type="password" name="mot_de_passe" placeholder="Nouveau mot de passe" class="form-control d-inline-block me-2" style="width: auto;">
+                            <button type="submit" class="btn btn-secondary">Modifier</button>
+                        </form>
+                        <form action="/admin/users/delete/<%= user._id %>" method="post" class="d-inline">
+                            <button type="submit" class="btn btn-danger">Supprimer</button>
+                        </form>
+                    </span>
+                </li>
+            <% }); %>
+        </ul>
+    </section>
+</main>
+<% include('../partials/footer') %>
+<script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/js/admin-scripts.js"></script>
+</body>
+</html>
+

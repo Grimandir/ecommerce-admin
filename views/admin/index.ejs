@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau de Bord Administrateur</title>
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/admin-styles.css">
+</head>
+<body>
+<% include('../partials/header') %>
+<main class="container my-5">
+    <section>
+        <h2>Statistiques</h2>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card text-center bg-light mb-3">
+                    <div class="card-body">
+                        <h3 class="card-title">Utilisateurs</h3>
+                        <p class="card-text"><%= userCount %></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-center bg-light mb-3">
+                    <div class="card-body">
+                        <h3 class="card-title">Produits</h3>
+                        <p class="card-text"><%= productCount %></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-center bg-light mb-3">
+                    <div class="card-body">
+                        <h3 class="card-title">Commandes</h3>
+                        <p class="card-text"><%= orderCount %></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-center bg-light mb-3">
+                    <div class="card-body">
+                        <h3 class="card-title">Ventes Totales</h3>
+                        <p class="card-text">€<%= totalSales %></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+<% include('../partials/footer') %>
+<script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/js/admin-scripts.js"></script>
+</body>
+</html>
+
+

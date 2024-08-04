@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MaBoutique - Panier</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <% include partials/header %>
+    <main>
+        <section>
+            <h2>Votre Panier</h2>
+            <% if (cart.length > 0) { %>
+                <ul>
+                    <% cart.forEach(item => { %>
+                        <li>
+                            <%= item.nom %> - Taille: <%= item.taille %> - Prix: €<%= item.prix %> - Quantité: <%= item.quantite %>
+                            <form action="/cart/remove" method="post" style="display:inline;">
+                                <input type="hidden" name="id" value="<%= item.id %>">
+                                <button type="submit">Supprimer</button>
+                            </form>
+                        </li>
+                    <% }); %>
+                </ul>
+                <p>Total: €<%= total %></p>
+                <form action="/cart/checkout" method="post">
+                    <button type="submit">Passer à la caisse</button>
+                </form>
+            <% } else { %>
+                <p>Votre panier est vide.</p>
+            <% } %>
+        </section>
+    </main>
+    <% include partials/footer %>
+</body>
+</html>
+
